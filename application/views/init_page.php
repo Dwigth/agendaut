@@ -28,7 +28,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <br>
   <div class="container">
     <div id="form_container">
-      <form id="date_picker" action="">
+      <form id="date_picker" action="http://localhost/agendaut/index.php/welcome/create">
+          <div>
+              <label for="">Lugar</label>
+              <select name="" id="">
+                  <option value="">Escoga un edificio</option>
+                  <option value="">Edificio 1</option>
+              </select>
+          </div>
+          <div>
+              <label for="">Espacio</label>
+              <select name="" id="">
+                  <option value="">Escoga un espacio</option>
+                  <option value="">Sala de usos multiples</option>
+              </select>
+          </div>
         <div>
             <label>Fecha de cita</label>
             <input type="date" name="" id="date">
@@ -60,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   </div>
 
-<br>
+<!-- <br>
 <div class="row">    
 <div class="column">
 <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
@@ -80,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
       <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
     </div>
-</div>
+</div> -->
 
   <script src="./assets/js/app.js"></script>
 </body>
