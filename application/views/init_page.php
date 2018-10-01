@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="es" dir="ltr">
 
@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
   <link rel="stylesheet" href="./assets/css/index.css">
   <!-- <link rel="stylesheet" href="./css/bootstrap-grid.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -31,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <form id="date_picker" action="http://localhost/agendaut/index.php/welcome/create">
           <div>
               <label for="">Lugar</label>
-              <select name="" id="">
+              <select name="" id=" ">
                   <option value="">Escoga un edificio</option>
                   <option value="">Edificio 1</option>
               </select>
@@ -74,6 +75,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   </div>
 
+  <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <br>
+    <form action="">
+        <div>
+        <label for="">Usuario</label>
+        <input type="text" name="" id="user">
+        </div>
+        <div>
+        <label for="">Contraseña</label>
+        <input type="password" name="" id="password">
+        </div>
+        <button id="send" type="button">Login</button>
+        <br>
+        <small id="msg"></small>
+    </form>
+  </div>
+
+  </div>
 <!-- <br>
 <div class="row">    
 <div class="column">
@@ -96,7 +118,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div> -->
 
-  <script src="./assets/js/app.js"></script>
+  <script type="module" src="./assets/js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </body>
 
 </html>

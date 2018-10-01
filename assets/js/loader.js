@@ -1,0 +1,12 @@
+export const date       = document.getElementById('date');
+export const datetime   = document.getElementById('datetime');
+export const time       = document.getElementById('time');
+export const btn        = document.getElementById('btn');
+export const message    = document.getElementById('message');
+export const loginbtn   = document.getElementById('login');
+export const send       = document.getElementById('send');
+export const user_input = document.getElementById('user');
+export const pass_input = document.getElementById('password');
+export const modal      = document.getElementById('myModal');
+export const span       = document.getElementsByClassName("close")[0];
+export const loginmsg   = document.getElementById('msg');
