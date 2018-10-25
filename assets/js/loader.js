@@ -10,3 +10,9 @@ export const user_input = document.getElementById('user');
 export const pass_input = document.getElementById('password');
 export const span       = document.getElementsByClassName("close")[0];
 export const loginmsg   = document.getElementById('msg');
+export const divInvitado   = document.getElementById('invitado');
+export const places   = document.getElementById('places');
+export const spaces   = document.getElementById('spaces');
+export const imagenes   = document.getElementById('imagenes');
+
+

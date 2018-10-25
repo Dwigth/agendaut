@@ -9,18 +9,27 @@ import { getUserObject } from './util.js';
 
 window.onload = () => {
     //obtiene el objeto usuario si este ya ha ingresado al sistema
+    var userStorage = null;
     session.init()
         .then((user) => {
+            userStorage = JSON.parse(user);
             session.setSessionUser(loader.loginli, JSON.parse(user)[0]);
             loader.loginbtn.style.display = "none";
+            loader.divInvitado.style.display = "none";
             // alert(user);
         })
         .catch((err) => {
             console.log(err);
             //alert(err);
         });
-
-    const datepicker = new Date_Picker(loader.date, loader.datetime, loader.time);
+    let htmlElemetsObj = {
+        date:loader.date,
+        datetime:loader.datetime,
+        aprox_time:loader.time,
+        places:loader.places,
+        spaces:loader.spaces,
+    };
+    const datepicker = new Date_Picker(htmlElemetsObj);
     const login = new Login(loader.loginmsg);
 
     loader.send.addEventListener('click', () => {
@@ -43,7 +52,14 @@ window.onload = () => {
             });
     });
 
+    loader.spaces.addEventListener('change',()=>{
+        datepicker.imagesPlaces(loader.spaces.value,loader.imagenes);
+    });
 
-    datepicker.getData(btn, message);
+    datepicker.fillPlaces();
+    datepicker.fillSpaces();
+    setTimeout(() => {
+    datepicker.getData(btn, userStorage, message);
+    }, 1000);
 
 }

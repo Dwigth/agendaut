@@ -9,6 +9,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
+  <link rel="stylesheet" href="./assets/css/hover-img.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
   <title>Agenda UT</title>
@@ -55,16 +56,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <form id="date_picker" action="http://localhost/agendaut/index.php/welcome/create">
             <div class="form-group">
               <label for="">Lugar</label>
-              <select class="form-control" name="" id=" ">
+              <select class="form-control" name="" id="places">
                 <option value="">Escoga un edificio</option>
-                <option value="">Edificio 1</option>
               </select>
             </div>
             <div class="form-group">
               <label for="">Espacio</label>
-              <select class="form-control" name="" id="">
+              <select class="form-control" name="" id="spaces">
                 <option value="">Escoga un espacio</option>
-                <option value="">Sala de usos multiples</option>
               </select>
             </div>
             <div class="form-group">
@@ -99,7 +98,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <br>
         <div id="spaces_container">
           <!-- contenedor de fotos -->
-          <img width="100%" src="http://www.uttab.edu.mx/img/actividades_uni/821_1.png" alt="">
+          <!-- <div id="imagenes" class="d-flex flex-column bd-highlight mb-3">
+          </div> -->
+          <div id="imagenes" class="d-flex align-content-stretch flex-wrapp">
+
+          </div>
+          <!-- <img width="100%" src="http://www.uttab.edu.mx/img/actividades_uni/821_1.png" alt=""> -->
         </div>
       </div>
 
