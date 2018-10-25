@@ -50,12 +50,11 @@ class Citas extends REST_Controller {
 
         $respuesta = array(
             'error' => false,
-            'mensaje' => 'Se procesará una cita para la fecha ' .$datos["fecha_cita"]. ' a las '.$datos["hora_inicio"].' con una duración aproximada de '.$datos["tiempo_aprox"].' hr(s), una secretaria, director o personal a cargo de los espacios debe confirmar su cita.',
+            'mensaje' => 'Se ha completado con éxito la cita: una secretaria, director o personal a cargo de los espacios debe confirmar su cita.',
             'codigo' => $codigo
 
      );
         $this->response($respuesta);
     }
 
-    // public function
 }

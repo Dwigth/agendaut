@@ -10,7 +10,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
   <link rel="stylesheet" href="./assets/css/hover-img.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="./assets\css\index.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
 
   <title>Agenda UT</title>
 </head>
@@ -148,34 +149,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </div>
 
-
-  <!-- <br>
-<div class="row">
-<div class="column">
-<img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-<img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-<img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-      <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    </div>
-    <div class="column">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-      <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    </div>
-    <div class="column">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-      <img  src="https://i2.wp.com/thehappening.com/wp-content/uploads/2015/10/catrina-maquillaje.jpg?fit=1024%2C694&ssl=1">
-    </div>
-</div> -->
-
   <script type="module" src="./assets/js/app.js"></script>
   <script src="assets\js\jquery-3.3.1.slim.min.js"></script>
   <script src="assets\js\popper.min.js"></script>
   <script src="assets\js\bootstrap.min.js"></script>
-
+  <script src="assets\js\jspdf.min.js"></script>
 </body>
 
 </html>

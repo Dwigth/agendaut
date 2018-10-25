@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -10,9 +10,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('init_page');
-	}
-	public function admin() {
-		$this->load->view('welcome_message');
-	}
+        $citas = $this->db->get('citas')->result_array();
+        $data["citas"] = $citas;
+        $this->load->view('admin_page', $data);
+
+    }
 }

@@ -3,6 +3,7 @@
  */
 import { http_get, http_request } from './request_handler.js';
 import { JSON_to_URLEncoded } from "./util.js";
+// import * as jsPDF from "./jspdf.min.js";
 
 export class Date_Picker {
     constructor({ date, datetime, aprox_time }) {
@@ -14,7 +15,11 @@ export class Date_Picker {
     }
     getData(btn, user, element) {
         btn.addEventListener('click', () => {
-            console.log(user);
+            if (this.date.value === '' || this.datetime.value === '' ||
+                this.aprox_time.value === '') {
+                this.failfill_message(element);
+                return;
+            }
 
             let cita = {
                 fecha_cita: this.date.value,
@@ -32,19 +37,18 @@ export class Date_Picker {
             http_request('POST', 'http://localhost/agendaut/index.php/citas/crear_cita', JSON_to_URLEncoded(cita), 'application/x-www-form-urlencoded')
                 .then(response => {
                     console.log(response);
-                    if (response.error) {
-                        if (this.date.value === '' || this.datetime.value === ''
-                            || this.aprox_time.value === '') {
-                            this.failfill_message(element);
-                            let small = document.createElement('small');
-                            small.innerText = response.mensaje;
-                            element.appendChild(small);
-                        } else {
-                            this.pre_message(element);
-                            let small = document.createElement('small');
-                            small.innerText = response.mensaje;
-                            element.appendChild(small);
-                        }
+                    if (!response.error) {
+                        this.pre_message(element);
+                        let small = document.createElement('small');
+                        small.innerText = response.mensaje;
+                        small.classList.add('text-success');
+                        element.appendChild(small);
+                        var doc = new jsPDF();
+                        doc.setFontSize(40)
+                        doc.text(35, 25, '¡Éxito al crear tu cita!');
+                        doc.setFontSize(10)
+                        doc.text(response.mensaje + " \n tu código es: \n " + response.codigo, 20, 80, );
+                        doc.save(`ticket-${response.codigo}.pdf`);
                     }
                 })
                 .catch(e => console.error(e));
@@ -54,52 +58,52 @@ export class Date_Picker {
         });
     }
     pre_message(element) {
-        let message = `Se procesará una cita para la fecha ${this.date.value}`
-            + ` en el ${this.spaces.options[this.spaces.selectedIndex].text} del ${this.places.options[this.places.selectedIndex].text}`
-            + ` a las ${this.datetime.value} con una duración aproximada de ${this.aprox_time.value} hr(s).`;
+        let message = `Se procesará una cita para la fecha ${this.date.value}` +
+            ` en el ${this.spaces.options[this.spaces.selectedIndex].text} del ${this.places.options[this.places.selectedIndex].text}` +
+            ` a las ${this.datetime.value} con una duración aproximada de ${this.aprox_time.value} hr(s).`;
         element.innerHTML = message;
     }
     fillPlaces() {
         http_get('http://localhost/agendaut/index.php/edificio').then(data => {
-            if (!data.error) {
-                data.edificios.forEach(edificio => {
-                    let option = document.createElement('option');
-                    option.innerText = edificio.nombre;
-                    option.value = edificio.id_edificio;
-                    this.places.appendChild(option);
-                });
-            }
-        })
+                if (!data.error) {
+                    data.edificios.forEach(edificio => {
+                        let option = document.createElement('option');
+                        option.innerText = edificio.nombre;
+                        option.value = edificio.id_edificio;
+                        this.places.appendChild(option);
+                    });
+                }
+            })
             .catch(error => console.error(error));
     }
     fillSpaces() {
         http_get('http://localhost/agendaut/index.php/edificio/tipo_espacio').then(data => {
-            if (!data.error) {
-                data.tipo_espacio.forEach(espacio => {
-                    let option = document.createElement('option');
-                    option.innerText = espacio.nombre;
-                    option.value = espacio.id_tipo_espacio;
-                    this.spaces.appendChild(option);
-                });
-            }
-        })
+                if (!data.error) {
+                    data.tipo_espacio.forEach(espacio => {
+                        let option = document.createElement('option');
+                        option.innerText = espacio.nombre;
+                        option.value = espacio.id_tipo_espacio;
+                        this.spaces.appendChild(option);
+                    });
+                }
+            })
             .catch(error => console.error(error));
     }
     imagesPlaces(id, contenedor) {
         contenedor.innerHTML = "";
         http_get('http://localhost/agendaut/index.php/edificio/espacios/' + id).then(data => {
-            if (!data.error) {
-                console.log(data);
-                data.espacios[0].imagenes.forEach(imagen => {
-                    let option = document.createElement('div');
-                    option.classList.add(['p-2', 'bd-highlight']);
-                    option.innerHTML = `<img class="img-thumbnail img-spaces" src="${imagen.url}">`;
-                    contenedor.appendChild(option);
-                });
+                if (!data.error) {
+                    console.log(data);
+                    data.espacios[0].imagenes.forEach(imagen => {
+                        let option = document.createElement('div');
+                        option.classList.add(['p-2', 'bd-highlight']);
+                        option.innerHTML = `<img class="img-thumbnail img-spaces" src="${imagen.url}">`;
+                        contenedor.appendChild(option);
+                    });
 
 
-            }
-        })
+                }
+            })
             .catch(error => console.log(error));
     }
     failfill_message(element) {
