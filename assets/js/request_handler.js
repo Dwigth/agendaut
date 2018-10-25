@@ -15,12 +15,10 @@ export function http_request(method, url, data, dataType) {
         console.log('Creando el request');
         request.onload = function() {
             resolve(JSON.parse(this.responseText));
-
         }
         request.onerror = reject;
         request.open(method, url, true);
         request.setRequestHeader('Content-Type', dataType);
         request.send(data);
     });
-
 }

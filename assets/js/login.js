@@ -4,15 +4,8 @@
 import { http_request } from './request_handler.js';
 import { JSON_to_URLEncoded } from "./util.js";
 export class Login {
-    constructor(modal, message) {
-        this.modal = modal;
+    constructor(message) {
         this.element_message = message;
-    }
-    openModal() {
-        this.modal.style.display = "block";
-    }
-    closeModal() {
-        this.modal.style.display = "none";
     }
     login(user, password) {
         return new Promise(function(resolve, reject) {
